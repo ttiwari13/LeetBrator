@@ -1,0 +1,39 @@
+{
+    "manifest_version": 3,
+    "name": "Leetcode Celebrator",
+    "version": "1.0",
+    "description": "Celebrate LeetCode wins with confetti and memes!",
+    "icons": {
+      "16": "images/icon.png",
+      "48": "images/icon.png",
+      "128": "images/icon.png"
+    },
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "images/icon.png"
+    },
+    "permissions": ["activeTab"],
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "images/runtime.png",
+          "images/compile.png",
+          "images/wrongans.png",
+          "videos/tle.mp4",
+          "videos/accepted.mp4",
+          "confetti.js"
+        ],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "content_scripts": [
+      {
+        "matches": ["*://leetcode.com/*"],
+        "js": ["content.js"]
+      }
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
